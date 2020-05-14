@@ -1,0 +1,18 @@
+---
+- name: Install the empty kpatch-patch file to register to kpatch stream
+  hosts: kpatch
+  tasks:
+    - name: Register to the kpatch stream
+      yum:
+        name: 
+          - kpatch
+          - kpatch-patch-4_18_0-147-0-0.el8.x86_64
+        state: present
+
+    - name: Install CVE detection script in /tmp
+      copy:
+        src: cve-2019-11135--2019-11-12-1735.sh
+        dest: /root/bin/
+        owner: root
+        group: root
+        mode: 0700
