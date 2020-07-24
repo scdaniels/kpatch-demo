@@ -1,0 +1,9 @@
+---
+- name: Install the current kpatch-patch for the running kernel
+  hosts: all
+  tasks:
+    - name: Install the most recent kpatch for the running kernel
+      yum:
+        name: "kpatch-patch = {{ ansible_kernel }}"
+        state: present
+...
