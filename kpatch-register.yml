@@ -1,0 +1,11 @@
+---
+- name: Install the empty kpatch-patch file to register to kpatch stream
+  hosts: all
+  tasks:
+    - name: Register to the kpatch stream
+      yum:
+        name: 
+          - kpatch
+          - kpatch-patch-4_18_0-147-0-0.el8.x86_64
+        state: present
+...
